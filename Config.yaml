@@ -1,0 +1,4 @@
+# popclip
+name: Cubox
+# icon: symbol:bookmark.fill
+shell script file: sendToCubox.sh
