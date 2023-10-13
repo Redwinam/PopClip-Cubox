@@ -1,4 +1,18 @@
 # popclip
 name: Cubox
 # icon: symbol:bookmark.fill
-shell script file: sendToCubox.sh
+options: 
+- identifier: "APIURL" 
+  label: "Cubox API 链接" 
+  type: string
+interpreter: /bin/sh
+shell script: |
+  API_ENDPOINT="${POPCLIP_OPTION_APIURL}"
+  curl --request POST \
+      --url "$API_ENDPOINT" \
+      --header "Content-Type: application/json" \
+      --data-raw "{
+          \"type\": \"memo\",
+          \"content\": \"$POPCLIP_TEXT\"
+      }"
+#end
